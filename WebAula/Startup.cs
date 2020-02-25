@@ -37,7 +37,9 @@ namespace WebAula
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
             services.AddDbContext<WebAulaContext>(options =>
-                    options.UseSqlServer(Configuration.GetConnectionString("WebAulaContext")));
+                   options.UseMySql(Configuration.GetConnectionString("WebAulaContext"), builder =>
+                    builder.MigrationsAssembly("WebAula")));
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
