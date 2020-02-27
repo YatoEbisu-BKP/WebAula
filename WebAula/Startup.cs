@@ -11,6 +11,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using WebAula.Data;
+using WebAula.Services;
 
 namespace WebAula
 {
@@ -39,7 +40,9 @@ namespace WebAula
             services.AddDbContext<WebAulaContext>(options =>
                    options.UseMySql(Configuration.GetConnectionString("WebAulaContext"), builder =>
                     builder.MigrationsAssembly("WebAula")));
+
             services.AddScoped<SeedingService>();
+            services.AddScoped<SellerServices>();
 
         }
 
