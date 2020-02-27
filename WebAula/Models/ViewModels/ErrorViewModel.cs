@@ -1,5 +1,3 @@
-using System;
-
 namespace WebAula.Models.ViewModels
 {
     public class ErrorViewModel
